@@ -1,0 +1,346 @@
+/* =============================================
+   HOMEPAGE — PARALLAX HERO
+   ============================================= */
+
+/* Hero wrapper: tall enough for 3 scenes of scroll */
+.hero-wrapper {
+  position: relative;
+  height: 300vh;
+}
+
+/* Sticky container holds everything in view */
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canvas background for animated scenes */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+/* Minimal vignette — barely-there edge softening only */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(251,245,233,0.06) 0%, transparent 12%, transparent 88%, rgba(251,245,233,0.08) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scene text panels — stacked, controlled by JS */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-scene__inner {
+  text-align: center;
+  max-width: 900px;
+  padding: 0 40px;
+  pointer-events: auto;
+}
+
+/* Scene visibility states */
+.hero-scene {
+  opacity: 0;
+  transition: opacity 800ms var(--ease-in-out);
+}
+.hero-scene.active { opacity: 1; }
+.hero-scene.exiting { opacity: 0; }
+
+/* Line-by-line text */
+.hero-line {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.hero-line__inner {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 900ms var(--ease-out), opacity 700ms ease;
+}
+.hero-scene.active .hero-line__inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+.hero-scene.active .hero-line:nth-child(2) .hero-line__inner { transition-delay: 120ms; }
+.hero-scene.active .hero-line:nth-child(3) .hero-line__inner { transition-delay: 240ms; }
+.hero-scene.active .hero-line:nth-child(4) .hero-line__inner { transition-delay: 360ms; }
+
+/* Scene-specific text sizes */
+.hero-scene--s1 .hero-text { font-size: clamp(40px, 5vw, 72px); }
+.hero-scene--s2 .hero-text { font-size: clamp(40px, 5vw, 72px); }
+.hero-scene--s3 .hero-text { font-size: clamp(40px, 5vw, 72px); }
+
+.hero-text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--forest);
+}
+.hero-text--italic { font-style: italic; color: var(--muted); }
+
+/* 'We build them.' — signature emphasis moment */
+.hero-scene--s3 .hero-line:first-child .hero-line__inner {
+  transition-delay: 100ms;
+}
+.hero-scene--s3.active .hero-line:first-child .hero-line__inner {
+  animation: buildThemScale 1200ms var(--ease-out) 100ms both;
+}
+@keyframes buildThemScale {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.96); }
+  55%  { opacity: 1; transform: translateY(-3px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Scene 3 final reveal */
+.hero-reveal-tagline {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hero-reveal-tagline .hero-line__inner {
+  transition-delay: 400ms;
+}
+.hero-tagline-text {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Scene 3 split visual */
+.hero-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 48px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out) 600ms, transform 700ms var(--ease-out) 600ms;
+}
+.hero-scene--s3.active .hero-split {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-split__pill {
+  padding: 8px 20px;
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: rgba(9,69,62,0.06);
+  backdrop-filter: blur(4px);
+}
+
+/* CTA cluster on scene 3 */
+.hero-cta-cluster {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out) 800ms, transform 700ms var(--ease-out) 800ms;
+  pointer-events: auto;
+}
+.hero-scene--s3.active .hero-cta-cluster {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scene progress dots */
+.hero-progress {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hero-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--muted);
+  opacity: 0.3;
+  transition: opacity 400ms ease, transform 400ms ease;
+  cursor: pointer;
+}
+.hero-dot.active {
+  opacity: 1;
+  transform: scale(1.5);
+  background: var(--forest);
+}
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeInHint 1s ease 1.5s forwards;
+}
+@keyframes fadeInHint {
+  to { opacity: 0.35; }
+}
+.hero-scroll-hint__label {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-scroll-hint__line {
+  width: 1px;
+  height: 40px;
+  background: var(--muted);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50%       { transform: scaleY(0.5); opacity: 1; }
+}
+
+/* =============================================
+   SERVICE INTRO SECTION
+   ============================================= */
+.service-intro {
+  padding: 160px 0 100px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.service-intro__header {
+  margin-bottom: 80px;
+}
+.service-intro__headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1.05;
+  color: var(--forest);
+  max-width: 20ch;
+}
+.service-intro__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 64px;
+}
+.service-intro__card {
+  background: var(--surface);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 300ms ease;
+  cursor: default;
+}
+.service-intro__card:hover {
+  background: rgba(9,69,62,0.04);
+}
+.service-intro__card-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.5;
+}
+.service-intro__card-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.1;
+}
+.service-intro__card-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.service-intro__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.service-intro__closing {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  font-style: italic;
+  color: var(--muted);
+  max-width: 40ch;
+  line-height: 1.6;
+}
+
+/* =============================================
+   TRUST LINE
+   ============================================= */
+.trust-line {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.trust-line__text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+/* =============================================
+   RESPONSIVE — HOMEPAGE
+   ============================================= */
+@media (max-width: 1024px) {
+  .hero-progress { right: 24px; }
+}
+
+@media (max-width: 767px) {
+  .hero-scene__inner { padding: 0 24px; }
+  .hero-progress { display: none; }
+  .hero-scroll-hint { bottom: 32px; }
+  .hero-cta-cluster { flex-direction: column; gap: 12px; }
+  .hero-split { flex-wrap: wrap; gap: 8px; }
+
+  .service-intro { padding: 100px 0 80px; }
+  .service-intro__grid { grid-template-columns: 1fr; }
+  .service-intro__footer { flex-direction: column; align-items: flex-start; }
+}

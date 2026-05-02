@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kllezo — Content. Websites. AI Systems.</title>
+  <meta name="description" content="Kllezo builds content systems, high-converting websites, and AI automation to drive real revenue for ambitious brands.">
+  <meta property="og:title" content="Kllezo — Growth Infrastructure">
+  <meta property="og:description" content="Content that attracts. Websites that convert. AI that closes.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Kllezo">
+        <img src="assets/logo.png" alt="Kllezo" style="height:32px; width:auto; object-fit:contain;">
+      </a>
+      <div class="navbar__nav">
+        <a href="index.html"    class="navbar__link active">Home</a>
+        <a href="services.html" class="navbar__link">Services</a>
+        <a href="apply.html"    class="navbar__link">Apply</a>
+        <div class="btn-magnetic">
+          <a href="apply.html" class="btn-primary" style="height:40px; padding:0 24px; font-size:12px;">Apply Now</a>
+        </div>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="navbar__overlay" role="dialog" aria-modal="true">
+    <a href="index.html"    class="navbar__link active">Home</a>
+    <a href="services.html" class="navbar__link">Services</a>
+    <a href="apply.html"    class="navbar__link">Apply</a>
+    <a href="apply.html"    class="btn-primary" style="margin-top:16px;">Apply Now</a>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO — 3-SCENE PARALLAX
+         ═══════════════════════════════════════════ -->
+    <div class="hero-wrapper" id="heroWrapper">
+      <div class="hero-sticky">
+
+        <!-- Canvas: animated background -->
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-vignette"></div>
+
+        <!-- SCENE 1: Chaos -->
+        <div class="hero-scene hero-scene--s1" id="heroScene1">
+          <div class="hero-scene__inner">
+            <span class="t-eyebrow" style="display:block; margin-bottom:40px; opacity:0.4;">Growth Infrastructure</span>
+            <span class="hero-line">
+              <span class="hero-line__inner hero-text t-italic" style="font-size: clamp(44px,5.5vw,80px);">Growth doesn't come</span>
+            </span>
+            <span class="hero-line">
+              <span class="hero-line__inner hero-text t-italic" style="font-size: clamp(44px,5.5vw,80px);">from doing more.</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- SCENE 2: Order -->
+        <div class="hero-scene hero-scene--s2" id="heroScene2">
+          <div class="hero-scene__inner">
+            <span class="hero-line">
+              <span class="hero-line__inner hero-text" style="font-size: clamp(44px,5.5vw,80px);">It comes from doing</span>
+            </span>
+            <span class="hero-line">
+              <span class="hero-line__inner hero-text" style="font-size: clamp(44px,5.5vw,80px);">the right things.</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- SCENE 3: Connected -->
+        <div class="hero-scene hero-scene--s3" id="heroScene3">
+          <div class="hero-scene__inner">
+            <span class="hero-line">
+              <span class="hero-line__inner hero-text" style="font-size: clamp(52px,6.5vw,96px); font-weight:300;">We build them.</span>
+            </span>
+
+            <!-- 3-part tagline -->
+            <div class="hero-reveal-tagline">
+              <span class="hero-line" style="margin-top:40px;">
+                <span class="hero-line__inner hero-tagline-text">Content that attracts &nbsp;·&nbsp; Websites that convert &nbsp;·&nbsp; AI that closes</span>
+              </span>
+            </div>
+
+            <!-- Visual pills -->
+            <div class="hero-split">
+              <span class="hero-split__pill">Content Engine</span>
+              <span class="hero-split__pill">High-Converting Websites</span>
+              <span class="hero-split__pill">AI Automation</span>
+            </div>
+
+            <!-- CTA -->
+            <div class="hero-cta-cluster">
+              <div class="btn-magnetic">
+                <a href="apply.html" class="btn-primary btn-primary--lg" id="heroCTA">Apply Now</a>
+              </div>
+              <a href="services.html" class="btn-text">See What We Build →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene progress dots -->
+        <div class="hero-progress" aria-hidden="true">
+          <div class="hero-dot" data-scene="0"></div>
+          <div class="hero-dot" data-scene="1"></div>
+          <div class="hero-dot" data-scene="2"></div>
+        </div>
+
+        <!-- Scroll hint (scene 1 only) -->
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span class="hero-scroll-hint__label">Scroll</span>
+          <div class="hero-scroll-hint__line"></div>
+        </div>
+
+      </div><!-- /.hero-sticky -->
+    </div><!-- /.hero-wrapper -->
+
+
+    <!-- ═══════════════════════════════════════════
+         SERVICE INTRO
+         ═══════════════════════════════════════════ -->
+    <section class="service-intro" id="services">
+      <div class="container">
+
+        <div class="service-intro__header reveal">
+          <span class="t-eyebrow" style="display:block; margin-bottom:24px;">What We Build</span>
+          <h2 class="service-intro__headline">Built for how modern businesses grow.</h2>
+        </div>
+
+        <div class="service-intro__grid">
+
+          <div class="service-intro__card reveal">
+            <span class="service-intro__card-num">01</span>
+            <div class="service-intro__card-title">Content</div>
+            <p class="service-intro__card-body">Attract attention consistently. Become memorable. Build inbound demand without chasing every trend.</p>
+          </div>
+
+          <div class="service-intro__card reveal reveal-delay-1">
+            <span class="service-intro__card-num">02</span>
+            <div class="service-intro__card-title">Websites</div>
+            <p class="service-intro__card-body">Convert visitors into clients. Position for premium perception. Replace design with performance.</p>
+          </div>
+
+          <div class="service-intro__card reveal reveal-delay-2">
+            <span class="service-intro__card-num">03</span>
+            <div class="service-intro__card-title">AI Systems</div>
+            <p class="service-intro__card-body">Respond instantly. Turn enquiries into sales. Close at scale — while you sleep.</p>
+          </div>
+
+        </div>
+
+        <div class="service-intro__footer">
+          <p class="service-intro__closing reveal">
+            Each can work alone.<br>Together, they scale everything.
+          </p>
+          <div class="btn-magnetic reveal reveal-delay-1">
+            <a href="services.html" class="btn-ghost">See What We Build →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         TRUST LINE
+         ═══════════════════════════════════════════ -->
+    <div class="trust-line">
+      <div class="container">
+        <p class="trust-line__text reveal">"Systems built to handle thousands of interactions daily. Designed for brands scaling beyond manual growth."</p>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER CTA
+         ═══════════════════════════════════════════ -->
+    <div class="footer-cta">
+      <div class="container">
+        <p class="footer-cta__eyebrow reveal">Ready to build</p>
+        <h2 class="footer-cta__headline reveal reveal-delay-1">
+          Start where<br>it matters.
+        </h2>
+        <div class="btn-magnetic reveal reveal-delay-2">
+          <a href="apply.html" class="btn-primary btn-primary--lg">Apply to Work With Us</a>
+        </div>
+        <p class="footer-cta__note reveal reveal-delay-3">We review every application manually. If it's a fit, we'll reach out.</p>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="assets/logo.png" alt="Kllezo" class="footer__logo" style="height:28px; width:auto; object-fit:contain;">
+          <p class="footer__tagline">Content. Conversion. Closing.<br>Built for founders who move fast.</p>
+        </div>
+        <div>
+          <span class="footer__col-label">Company</span>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="apply.html">Apply</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer__col-label">Connect</span>
+          <ul class="footer__links">
+            <li><a href="#" rel="noopener">Instagram</a></li>
+            <li><a href="#" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" rel="noopener">Twitter / X</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer__divider">
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 Kllezo. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie notice">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <p style="font-size:13px; color:var(--muted); margin:0;">We use minimal cookies to improve your experience.</p>
+      <button class="btn-primary" id="acceptCookies" style="height:36px; padding:0 20px; font-size:12px; flex-shrink:0;">Accept</button>
+    </div>
+  </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/919876543210?text=Hi%20Kllezo!%20I%27d%20like%20to%20apply." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" style="position:fixed; bottom:28px; right:28px; z-index:900; width:52px; height:52px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,0.3); transition:transform 200ms ease, box-shadow 200ms ease;">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.18-.008-.382-.01-.585-.01-.202 0-.527.074-.803.372-.274.297-1.046 1.016-1.046 2.479s1.071 2.876 1.22 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
