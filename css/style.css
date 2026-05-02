@@ -4,18 +4,23 @@
    TOKENS
    ============================================= */
 :root {
-  --bg: #070e0d;
+  /* ── Brand Tokens ── */
+  --bg:         #fbf5e9;
+  --surface:    #ffffff;
+  --forest:     #09453e;   /* PRIMARY — green */
   --deep-green: #09453e;
-  --beige: #fbf5e9;
-  --muted: #687b75;
-  --white: #ffffff;
-  --border: rgba(251, 245, 233, 0.08);
-  --border-mid: rgba(251, 245, 233, 0.14);
+  --beige:      #fbf5e9;
+  --muted:      #687b75;
+  --white:      #ffffff;
+
+  /* Borders on light bg */
+  --border:     rgba(9,69,62,0.1);
+  --border-mid: rgba(9,69,62,0.18);
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
 
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
@@ -37,9 +42,9 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--beige);
-  line-height: 1.7;
+  background: #fbf5e9;
+  color: #09453e;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -117,7 +122,7 @@ body::before {
   font-size: clamp(56px, 7vw, 108px);
   line-height: 1.0;
   letter-spacing: -0.01em;
-  color: var(--beige);
+  color: var(--forest);
 }
 
 .t-display-md {
@@ -126,7 +131,7 @@ body::before {
   font-size: clamp(40px, 5vw, 76px);
   line-height: 1.05;
   letter-spacing: -0.01em;
-  color: var(--beige);
+  color: var(--forest);
 }
 
 .t-display-sm {
@@ -135,7 +140,7 @@ body::before {
   font-size: clamp(32px, 3.5vw, 56px);
   line-height: 1.1;
   letter-spacing: -0.005em;
-  color: var(--beige);
+  color: var(--forest);
 }
 
 .t-eyebrow {
@@ -165,11 +170,11 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  height: 1px;
-  background: var(--beige);
+  height: 2px;
+  background: var(--forest);
   width: 0%;
   z-index: 9998;
-  opacity: 0.5;
+  opacity: 0.4;
   transition: width 80ms linear;
 }
 
@@ -185,11 +190,11 @@ body::before {
   height: 72px;
   display: flex;
   align-items: center;
-  transition: background 400ms var(--ease-out), backdrop-filter 400ms;
+  transition: background 400ms var(--ease-out), backdrop-filter 400ms, border-color 400ms;
 }
 
 .navbar.scrolled {
-  background: rgba(7, 14, 13, 0.88);
+  background: rgba(251,245,233,0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -206,16 +211,15 @@ body::before {
 }
 
 .navbar__logo {
-  height: 28px;
+  height: 32px;
   display: flex;
   align-items: center;
 }
 
 .navbar__logo img {
-  height: 28px;
+  height: 32px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+  /* No invert — logo shows at natural color on beige bg */
 }
 
 .navbar__nav {
@@ -234,11 +238,12 @@ body::before {
 }
 
 .navbar__link:hover {
-  color: var(--beige);
+  color: var(--forest);
 }
 
 .navbar__link.active {
-  color: var(--beige);
+  color: var(--forest);
+  font-weight: 500;
 }
 
 .navbar__link.active::after {
@@ -248,8 +253,8 @@ body::before {
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--beige);
-  opacity: 0.4;
+  background: var(--forest);
+  opacity: 0.3;
 }
 
 /* Hamburger */
@@ -264,8 +269,8 @@ body::before {
 .navbar__hamburger span {
   display: block;
   width: 22px;
-  height: 1px;
-  background: var(--beige);
+  height: 1.5px;
+  background: var(--forest);
   transition: all 300ms var(--ease-out);
   transform-origin: center;
 }
@@ -287,7 +292,7 @@ body::before {
   display: none;
   position: fixed;
   inset: 0;
-  background: var(--bg);
+  background: #fbf5e9;
   z-index: 999;
   flex-direction: column;
   align-items: center;
@@ -309,7 +314,7 @@ body::before {
   font-size: 40px;
   font-weight: 400;
   letter-spacing: 0;
-  color: var(--beige);
+  color: var(--forest);
 }
 
 /* =============================================

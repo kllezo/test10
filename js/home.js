@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (p2 <= 0) return;
 
     ctx.save();
-    ctx.globalAlpha = p2 * 0.25;
-    ctx.strokeStyle = `${C_BEIGE}1)`;
+    ctx.globalAlpha = p2 * 0.18;
+    ctx.strokeStyle = `${C_MUTED}1)`;  // muted green — visible on beige bg
     ctx.lineWidth = 0.5;
 
     for (let i = 0; i < particles.length - 1; i++) {
@@ -148,15 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initParticles();
 
-  // Background radial glow for scene 3
+  // Background radial glow DISABLED — beige bg doesn't need darkening
   function drawBgGlow(progress) {
-    const p2 = Math.max((progress - 0.5) * 2, 0);
-    if (p2 <= 0) return;
-    const grad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.5);
-    grad.addColorStop(0, `rgba(9,69,62,${p2 * 0.18})`);
-    grad.addColorStop(1, 'transparent');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
+    // intentionally empty — removed dark overlay
   }
 
   /* ─── SCROLL SCENES ───────────────────────── */
